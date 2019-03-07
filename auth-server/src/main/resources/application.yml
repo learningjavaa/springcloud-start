@@ -6,6 +6,17 @@ server:
 spring:
   application:
     name: oaut-server
+  redis:
+      host: 127.0.0.1
+      port: 6379
+      timeout: 6000
+  datasource:
+      url: jdbc:mysql://localhost:3306/springcloud?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: 123456
+      # druid 数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
 eureka:
   client:
     service-url:
@@ -16,3 +27,11 @@ encrypt:
     secret: xuechengkeystore
     alias: xckey
     password: xuecheng
+    
+mybatis-plus:
+  #Mapper.xml存放位置
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描
+  typeAliasesPackage: com.example.common.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
