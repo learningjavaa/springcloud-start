@@ -70,7 +70,7 @@ public class UserDetail implements UserDetails {
      */
     @Override
     public boolean isAccountNonLocked() {
-        return this.status == 0;
+        return true;
     }
 
     /**
@@ -86,6 +86,6 @@ public class UserDetail implements UserDetails {
      */
     @Override
     public boolean isEnabled() {
-        return this.status == 1;
+        return true;
     }
 }

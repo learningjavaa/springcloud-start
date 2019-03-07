@@ -1,8 +1,6 @@
 
 server:
   port: 8763
-  servlet:
-    context-path: /auth
 spring:
   application:
     name: oaut-server
@@ -17,10 +15,10 @@ spring:
       # druid 数据源
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
-eureka:
-  client:
-    service-url:
-      defaultUrl: http://localhost:8761/eureka/
+#eureka:
+#  client:
+#    service-url:
+#      defaultUrl: http://localhost:8761/eureka/
 encrypt:
   key-store:
     location: classpath:/xc.keystore
