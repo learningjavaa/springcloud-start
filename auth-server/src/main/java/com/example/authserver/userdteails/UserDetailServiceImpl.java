@@ -25,7 +25,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
         // todo 测试暂时写死,后面从数据库查询
         UserDO userDO = new UserDO();
         userDO.setName("曾孝");
-        userDO.setPassword("{bcrypt}$2a$10$wavB5DbO.WTiFSf5GL4WA.5zZv2XhSt1aMlEFBW2p23YqqOB8Qlqm");
+        userDO.setPassword("$2a$10$mX0IPzjwxv7vHfykkFncCuKLV7RpcG3zDLDWiEL4it1kbAUVuynxa");
         // 这密码是从数据库中取出的,封装到UserDetail后,
         // security会自动帮我们进行匹配
         userDO.setUsername("zengxiao");

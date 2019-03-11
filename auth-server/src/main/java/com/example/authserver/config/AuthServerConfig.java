@@ -22,6 +22,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -36,11 +37,12 @@ import java.util.List;
  * @Modified By:
  */
 @EnableAuthorizationServer //  认证服务器
+@Component
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 
-    @Autowired
-    private DataSource dataSource;
+    //@Autowired
+    //private DataSource dataSource;
 
     @Autowired
     private UserDetailsService userDetailService;
@@ -81,7 +83,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
         clients.inMemory().withClient("app")
                 .authorizedGrantTypes("password", "refresh_token", "authorization_code")
                 .scopes("app")
-                .secret("app")
+                .secret("$2a$10$e6SUxu6ZvR6N3DcU9ElTJuDRQF/AHcinV09tXJgOAowlmZuSfcYXG")
                 .autoApprove(false);
     }
 
@@ -120,5 +122,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    public static void main(String[] args) {
+        System.out.println(new BCryptPasswordEncoder().encode("123456"));
+    }
 
 }
