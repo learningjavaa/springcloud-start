@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Modified By:
  */
 @RestController
-public class Acontroller {
+public class Testcontroller {
 
     @RequestMapping("test")
     public String test() {

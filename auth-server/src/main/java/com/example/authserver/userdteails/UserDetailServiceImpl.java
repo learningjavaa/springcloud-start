@@ -24,7 +24,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         // todo 测试暂时写死,后面从数据库查询
         UserDO userDO = new UserDO();
-        userDO.setName("曾孝");
+        userDO.setName("zengxiao");
         userDO.setPassword("$2a$10$mX0IPzjwxv7vHfykkFncCuKLV7RpcG3zDLDWiEL4it1kbAUVuynxa");
         // 这密码是从数据库中取出的,封装到UserDetail后,
         // security会自动帮我们进行匹配

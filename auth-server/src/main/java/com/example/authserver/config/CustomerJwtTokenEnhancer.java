@@ -17,7 +17,7 @@ public class CustomerJwtTokenEnhancer implements TokenEnhancer {
     public OAuth2AccessToken enhance(OAuth2AccessToken oAuth2AccessToken, OAuth2Authentication oAuth2Authentication) {
 
         Map<String,Object> info = new HashMap<>();
-        info.put("company", "喜茶");
+        info.put("company", "test");
         //设置附加信息
         ((DefaultOAuth2AccessToken)oAuth2AccessToken).setAdditionalInformation(info);
         return oAuth2AccessToken;
