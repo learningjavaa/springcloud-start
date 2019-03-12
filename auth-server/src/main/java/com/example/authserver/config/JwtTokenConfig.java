@@ -41,6 +41,9 @@ public class JwtTokenConfig {
         // accessTokenConverter.setKeyPair(keyPair);
 
         // accessTokenConverter.setSigningKey("internet_plus");
+
+        accessTokenConverter.setAccessTokenConverter(new CustomerAccessTokenConverter());
+
         return accessTokenConverter;
     }
 

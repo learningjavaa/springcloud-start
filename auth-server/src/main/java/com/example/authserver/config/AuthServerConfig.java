@@ -3,6 +3,7 @@ package com.example.authserver.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.bootstrap.encrypt.KeyProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -37,7 +38,7 @@ import java.util.List;
  * @Modified By:
  */
 @EnableAuthorizationServer //  认证服务器
-@Component
+@Configuration
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 
@@ -61,15 +62,15 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     @Autowired
-    private TokenEnhancer jwtTokenEnhancer;
+    private TokenEnhancer customerJwtTokenEnhancer;
     /**
      * 设置jwt扩展
      * @return
      */
-    @Bean
-    public TokenEnhancer jwtTokenEnhancer(){
-        return new JwtTokenEnhancer();
-    }
+    // @Bean
+    // public TokenEnhancer jwtTokenEnhancer(){
+    //     return new CustomerJwtTokenEnhancer();
+    // }
 
     //jwt令牌转换器
     @Autowired
@@ -100,7 +101,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .userDetailsService(userDetailService);//用户信息service
         TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
         List<TokenEnhancer> enhancerList = new ArrayList<>();
-        enhancerList.add(jwtTokenEnhancer);
+        enhancerList.add(customerJwtTokenEnhancer);
         enhancerList.add(jwtAccessTokenConverter);
         enhancerChain.setTokenEnhancers(enhancerList);
 
