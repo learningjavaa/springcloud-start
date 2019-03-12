@@ -13,7 +13,7 @@ import java.util.Map;
  * 默认使用DefaultAccessTokenConverter 这个装换器
  * DefaultAccessTokenConverter有个UserAuthenticationConverter，这个转换器作用是把用户的信息放入token中，默认只是放入user_name
  * <p>
- * 自定义这个方法，加入了额外的信息 注:和CustomerJwtTokenEnhancer功能很像
+ * 自定义这个方法，加入了额外的信息 注:这个是加到access_token里面   tokenEnhancer是加入密码模式获取到的的数据里面 如access_token，token_type,...
  * <p>
  * @author simon
  * @create 2018-11-14 10:26
